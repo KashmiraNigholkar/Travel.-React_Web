@@ -1,0 +1,220 @@
+:root {
+  --Primarycolor: hsl(199, 100%, 33%);
+  --Secondarycolor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --cardBG: rgb(255, 255, 255);
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(75%);
+    }
+  }
+
+  .homeContent {
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--whiteColor);
+
+    .textDiv {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      .smallText {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--whiteColor);
+        opacity: 0.8;
+      }
+
+      .homeTitle {
+        font-size: 5rem;
+        font-weight: 700;
+        margin-top: 0.5rem;
+      }
+    }
+
+    .cardDiv {
+      background: var(--cardBG);
+      width: 100%;
+      border-radius: 10px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+      .destinationInput,
+      .dateInput,
+      .priceInput {
+        label {
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          display: block;
+          color: var(--textColor);
+        }
+
+        .input {
+          background: var(--inputColor);
+          padding: 0.5rem 1rem;
+          border-radius: 30px;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+          }
+
+          .icon {
+            font-size: 18px;
+            color: var(--Primarycolor);
+          }
+        }
+      }
+
+      .priceInput {
+        .label_total {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 0.5rem;
+
+          label {
+            color: var(--textColor);
+          }
+
+          .total {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--Primarycolor);
+          }
+        }
+      }
+
+      .searchOption {
+        background: var(--Primarycolor);
+        color: var(--whiteColor);
+        padding: 0.7rem 1rem;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        gap: 0.5rem;
+
+        .icon {
+          font-size: 18px;
+        }
+
+        span {
+          font-weight: 500;
+        }
+
+        &:hover {
+          background: var(--Secondarycolor);
+        }
+      }
+    }
+
+    .homeFooterIcons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .rightIcons,
+      .lefticons {
+        display: flex;
+        gap: 1rem;
+
+        .icon {
+          font-size: 20px;
+          color: var(--whiteColor);
+          cursor: pointer;
+          transition: 0.3s ease;
+
+          &:hover {
+            color: var(--Primarycolor);
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
+    // Media queries with animation
+    @media screen and (min-width: 500px) {
+      .textDiv {
+        .smallText {
+          font-size: 16px;
+          animation: fadeSlideUp 1s ease forwards;
+          animation-delay: 0.3s;
+        }
+
+        .homeTitle {
+          position: relative;
+          font-size: 2.3rem;
+          width: max-content;
+          animation: fadeSlideUp 1s ease forwards;
+          animation-delay: 0.6s;
+
+          &::after {
+            position: absolute;
+            content: '';
+            width: 50%;
+            height: 3px;
+            background: var(--Primarycolor);
+            bottom: -5px;
+            left: 0;
+            border-radius: 3px;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease forwards;
+            animation-delay: 1.2s;
+          }
+        }
+      }
+    }
+  }
+}

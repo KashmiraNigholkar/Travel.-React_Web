@@ -1,0 +1,177 @@
+:root {
+  --Primarycolor: hsl(199, 100%, 33%);
+  --Secondarycolor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 235);
+  --cardHover: rgb(255, 255, 255);
+}
+
+.main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .secTitle {
+    .title {
+      position: relative;
+      width: max-content;
+      color: var(--textColor);
+      margin: 1rem 0;
+      z-index: 2;
+
+      &::after {
+        position: absolute;
+        content: '';
+        background: var(--Secondarycolor);
+        height: 5px;
+        width: 120px;
+        right: 0;
+        bottom: 5px;
+        z-index: -1;
+      }
+    }
+  }
+
+  .secContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+
+    .singleDestination {
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      background: var(--cardBG);
+      box-shadow: 0 2px 4px rgba(140, 140, 141, 0.54);
+      overflow: hidden;
+      transition: 0.3s ease;
+
+      &:hover {
+        background: var(--cardHover);
+        box-shadow: 0 2px 6px rgba(140, 140, 141, 0.6);
+      }
+
+      .imageDiv {
+        height: 200px;
+        width: 100%;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transition: 0.5s ease;
+        }
+
+        &:hover img {
+          transform: scale(1.1);
+        }
+      }
+
+      .cardInfo {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .destTitle {
+          color: var(--blackColor);
+          font-size: 1.25rem;
+          font-weight: 600;
+        }
+
+        .continent {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin: 0.5rem 0;
+
+          .icon {
+            color: var(--textColor);
+            font-size: 18px;
+          }
+
+          .name {
+            color: var(--textColor);
+            font-weight: 400;
+            font-size: 14px;
+          }
+        }
+
+        .fees {
+          display: flex;
+          justify-content: space-between;
+          padding: 1rem 0;
+          margin: 1rem 0;
+          border-top: 1.5px solid var(--greyText);
+          border-bottom: 1.5px solid var(--greyText);
+
+          .grade {
+            color: var(--textColor);
+            max-width: 100px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            small {
+              background: var(--gradientColor);
+              border-radius: 1rem;
+              color: var(--whiteColor);
+              padding: 2px 6px;
+              font-size: 10px;
+              margin-left: 5px;
+            }
+          }
+
+          .price {
+            font-size: 1.5rem;
+            color: var(--blackColor);
+            font-weight: bold;
+          }
+        }
+
+        .desc {
+          font-size: 13.5px;
+          color: var(--textColor);
+          font-weight: 500;
+          margin-bottom: 1rem;
+        }
+
+        .btn {
+          display: flex;
+          align-items: center;
+          background: var(--gradientColor);
+          padding: 0.6rem 1.2rem;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          color: var(--whiteColor);
+          font-weight: 600;
+          transition: 0.3s ease;
+          gap: 0.5rem;
+          margin-top: auto;
+
+          &:hover {
+            opacity: 0.9;
+          }
+
+          .icon {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
